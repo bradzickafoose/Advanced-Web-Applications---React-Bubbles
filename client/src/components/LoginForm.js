@@ -20,11 +20,12 @@ const LoginForm = () => {
 
     const onSubmit = event => {
         event.preventDefault();
+
         axiosWithAuth()
             .post('/login', userCredentials)
             .then(response => {
                 localStorage.setItem('token', response.data.payload);
-                history.push('/colors');
+                history.push('/bubbles');
             })
             .catch(error => console.log('login error', error));
     }

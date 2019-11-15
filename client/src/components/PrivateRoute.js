@@ -8,11 +8,10 @@ const PrivateRoute = ({ children, ...rest }) => {
             render={({ location }) =>
                 localStorage.getItem('token') ?
                     (children) :
-                    (<Redirect to={{ pathname: '/login', state: { from: location }, }}
-                    />)
+                    (<Redirect to={{ pathname: '/', state: { from: location } }} />)
             }
         />
-    )
-}
+    );
+};
 
 export default PrivateRoute;
