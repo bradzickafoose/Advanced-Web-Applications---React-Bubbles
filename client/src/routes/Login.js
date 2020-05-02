@@ -1,4 +1,5 @@
 import React from "react";
+import LoginForm from '../components/LoginForm';
 
 const Login = () => {
   // make a post request to retrieve a token from the api
@@ -6,7 +7,7 @@ const Login = () => {
   return (
     <>
       <h1>Welcome to the Bubble App!</h1>
-      <p>Build a login page here</p>
+      <LoginForm />
     </>
   );
 };

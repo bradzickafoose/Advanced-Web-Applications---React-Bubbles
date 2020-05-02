@@ -102,7 +102,7 @@ function authenticator(req, res, next) {
 
 app.post("/api/login", (req, res) => {
   const { username, password } = req.body;
-  if (username === "Lambda School" && password === "i<3Lambd4") {
+  if (username === "Lambda" && password === "1234") {
     req.loggedIn = true;
     setTimeout(() => {
       res.status(200).json({
@@ -154,10 +154,10 @@ app.delete("/api/colors/:id", authenticator, (req, res) => {
   res.status(202).send(req.params.id);
 });
 
-app.get("/", function(req, res) {
+app.get("/", function (req, res) {
   res.send("App is working 👍");
 });
 
-app.listen(5000, () => {
-  console.log("Server listening on port 5000");
+app.listen(5002, () => {
+  console.log("Server listening on port 5002");
 });
