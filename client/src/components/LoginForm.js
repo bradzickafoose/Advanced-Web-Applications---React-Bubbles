@@ -18,7 +18,7 @@ const LoginForm = () => {
         });
     };
 
-    const onSubmit = event => {
+    const handleSubmit = event => {
         event.preventDefault();
 
         axiosWithAuth()
@@ -32,7 +32,7 @@ const LoginForm = () => {
 
     return (
         <div>
-            <form onSubmit={onSubmit}>
+            <form onSubmit={handleSubmit}>
                 <input
                     type='text'
                     name='username'
