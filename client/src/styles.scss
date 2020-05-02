@@ -20,6 +20,17 @@ body,
   }
 }
 
+.App-header {
+  height: 100%;
+  nav {
+    display: flex;
+    flex-direction: column;
+  }
+  nav a {
+    padding: 2rem 1rem;
+  }
+}
+
 .spacer {
   height: 100%;
 }
@@ -33,7 +44,8 @@ body,
 .colors-wrap {
   height: 100%;
   width: 300px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1);
+  padding-bottom: 2rem;
 
   ul {
     list-style: none;
