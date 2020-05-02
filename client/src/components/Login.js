@@ -1,5 +1,5 @@
 import React from "react";
-import LoginForm from '../components/LoginForm';
+import LoginForm from './LoginForm';
 
 const Login = () => {
   // make a post request to retrieve a token from the api
