@@ -7,7 +7,6 @@ const initialColor = {
 };
 
 const ColorList = ({ colors, updateColors }) => {
-  console.log('color list', colors);
   const [editing, setEditing] = useState(false);
   const [colorToEdit, setColorToEdit] = useState(initialColor);
 
@@ -34,8 +33,8 @@ const ColorList = ({ colors, updateColors }) => {
     // make a delete request to delete this color
     axiosWithAuth()
       .delete(`/colors/${color.id}`)
-      .then((res) => updateColors(colors.filter((color) => color.id !== res.data)))
-      .catch((err) => console.log(err));
+      .then(response => updateColors(colors.filter(color => color.id !== response.data)))
+      .catch(error => console.error(error));
   };
 
   return (
@@ -45,8 +44,8 @@ const ColorList = ({ colors, updateColors }) => {
         {colors.map(color => (
           <li key={color.color} onClick={() => editColor(color)}>
             <span>
-              <span className="delete" onClick={e => {
-                e.stopPropagation();
+              <span className="delete" onClick={event => {
+                event.stopPropagation();
                 deleteColor(color)
               }
               }>
@@ -67,21 +66,14 @@ const ColorList = ({ colors, updateColors }) => {
           <label>
             color name:
             <input
-              onChange={e =>
-                setColorToEdit({ ...colorToEdit, color: e.target.value })
-              }
+              onChange={event => setColorToEdit({ ...colorToEdit, color: event.target.value })}
               value={colorToEdit.color}
             />
           </label>
           <label>
             hex code:
             <input
-              onChange={e =>
-                setColorToEdit({
-                  ...colorToEdit,
-                  code: { hex: e.target.value }
-                })
-              }
+              onChange={event => setColorToEdit({ ...colorToEdit, code: { hex: event.target.value } })}
               value={colorToEdit.code.hex}
             />
           </label>

@@ -12,8 +12,8 @@ const BubblePage = () => {
   const updateColors = () => {
     axiosWithAuth()
       .get('/colors')
-      .then(res => setColorList(res.data))
-      .catch(err => console.log("color list error:", err.response));
+      .then(response => setColorList(response.data))
+      .catch(error => console.error("color list error:", error.response));
   }
 
   useEffect(() => {

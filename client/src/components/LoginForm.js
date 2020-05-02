@@ -9,7 +9,7 @@ const LoginForm = () => {
         password: ''
     });
 
-    const history = useHistory();
+    const { push } = useHistory();
 
     const handleChange = event => {
         setUserCredentials({
@@ -25,9 +25,9 @@ const LoginForm = () => {
             .post('/login', userCredentials)
             .then(response => {
                 localStorage.setItem('token', response.data.payload);
-                history.push('/bubbles');
+                push('/bubbles');
             })
-            .catch(error => console.log('login error', error));
+            .catch(error => console.error('login error', error));
     }
 
     return (
